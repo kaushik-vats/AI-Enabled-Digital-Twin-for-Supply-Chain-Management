@@ -4,6 +4,9 @@ An AI-powered Digital Twin of a multi-city supply chain that simulates inventory
 
 This project demonstrates how Artificial Intelligence, Simulation, and Data Analytics can work together to improve supply chain efficiency by reducing stockouts, optimizing inventory levels, and enabling data-driven decision making.
 
+Project Demo
+Streamlit:https://flipkart-digital-twin-hvannmrredwzjavnegkyy7.streamlit.app/
+
 ---
 
 ## 🚀 Project Overview
