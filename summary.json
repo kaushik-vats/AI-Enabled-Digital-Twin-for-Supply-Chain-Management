@@ -1,0 +1,10 @@
+{
+  "dashboard_link": "https://flipkart-digital-twin-hvannmrredwzjavnegkyy7.streamlit.app/",
+  "total_annual_saving_usd": 67.0,
+  "scenarios_tested": [
+    "Baseline",
+    "Demand Spike (Big Billion Day)",
+    "Supplier Delay (Port Congestion)",
+    "Warehouse Downtime (Hub Outage)"
+  ]
+}

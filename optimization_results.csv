@@ -1,0 +1,5 @@
+City,ROP Before,ROP After,EOQ Before,EOQ After,Cost Before ($),Cost After ($),Saving ($),Saving (%),Fill Rate Before,Fill Rate After
+Mumbai,27,21.8,661.8,661.8,1342,1332,9,0.7,100,99.2
+Delhi,63,47.3,661.8,662.7,1366,1336,29,2.2,100,98.8
+Bangalore,37.5,28.8,604.2,604.2,1233,1217,16,1.3,100,98.9
+Chennai,30,23,540.4,540.4,1101,1088,13,1.2,100,98.7
