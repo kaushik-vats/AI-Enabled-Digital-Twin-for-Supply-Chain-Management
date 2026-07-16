@@ -71,7 +71,7 @@ cities    = sorted(df_all["City"].unique())
 # df_all["Date"].unique() on a datetime column returns numpy.datetime64
 # objects, which do NOT have .strftime(). Wrapping with pd.to_datetime(...)
 # and converting to a list gives proper pandas Timestamps everywhere below.
-all_dates = sorted(pd.to_datetime(df_all["Date"].unique()).to_pydatetime().tolist())
+all_dates = sorted(df_all["Date"].drop_duplicates())
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FORECASTING HELPER
