@@ -58,10 +58,16 @@ st.markdown("""
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_csv("flipkart_iphone16_multicity.csv", parse_dates=["Date"])
+        df = pd.read_csv("flipkart_iphone16_multicity.csv")
     except FileNotFoundError:
         st.error("⚠️ Place flipkart_iphone16_multicity.csv in the same folder as dashboard.py")
         st.stop()
+    # FIX: don't rely on parse_dates alone — on some pandas/pyarrow versions
+    # (e.g. pandas on Python 3.14 used by Streamlit Cloud) it silently keeps
+    # the column as a PyArrow string dtype instead of datetime64, which then
+    # breaks every "<=" / "==" comparison against a Timestamp later on.
+    # Explicitly converting here guarantees a real datetime64[ns] column.
+    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
     df = df.sort_values(["Date","City"]).reset_index(drop=True)
     return df
 
@@ -71,7 +77,7 @@ cities    = sorted(df_all["City"].unique())
 # df_all["Date"].unique() on a datetime column returns numpy.datetime64
 # objects, which do NOT have .strftime(). Wrapping with pd.to_datetime(...)
 # and converting to a list gives proper pandas Timestamps everywhere below.
-all_dates = sorted(df_all["Date"].drop_duplicates())
+all_dates = sorted(pd.to_datetime(df_all["Date"].unique()).to_pydatetime().tolist())
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FORECASTING HELPER
